@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.pnrNumberPage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 20px;
+}
+
+.pnrNumberCenter {
+    text-align: center;
+    width: 100%;
+    max-width: 380px;
+}
+
+.pnrNumberCenter h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
+}
+
+.pnrContainer {
+    margin: 20px auto 0 auto;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: gray;
+    border-width: 1px;
+    height: auto;
+    width: 100%;
+    max-width: 360px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pnrHeading {
+    font-size: 11px;
+    align-self: start;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
+}
+
+.pnrHeading i {
+    margin-right: 8px;
+}
+
+.pnrInputBox {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    max-width: 240px;
+    font-size: 18px;
+    background-color: transparent;
+    border-style: none;
+    border-bottom: dashed;
+    border-width: 1px;
+    color: aqua;
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: 2px;
+}
+
+.pnrInputBox::placeholder {
+    color: gray;
+}
+
+.pnrInputBox:focus {
+    outline: none;
+}
+
+.btnContainer {
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 14px;
+}
+
+.pnrScanBtn {
+    text-align: center;
+    width: 100%;
+    height: 38px;
+    font-size: 13px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: aqua;
+    color: aqua;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.pnrScanBtn:hover {
+    border-color: azure;
+}
+
+@media (max-width: 700px) {
+    .pnrNumberPage {
+        padding: 32px 16px;
+    }
+
+    .pnrNumberCenter {
+        max-width: 100%;
+    }
+
+    .pnrNumberCenter h1 {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+    }
+
+    .pnrContainer {
+        max-width: 100%;
+        padding: 14px 16px;
+        margin: 16px 0 0 0;
+    }
+
+    .pnrHeading {
+        font-size: 10px;
+    }
+
+    .pnrInputBox {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .btnContainer {
+        width: 100%;
+    }
+
+    .pnrScanBtn {
+        font-size: 12px;
+        height: 36px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .pnrNumberCenter h1 {
+        font-size: 14px;
+    }
+
+    .pnrInputBox {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .pnrScanBtn {
+        font-size: 11px;
+    }
+}
