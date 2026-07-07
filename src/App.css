@@ -1,7 +1,32 @@
-*{
-  margin: 0;
-  color: white;
+.appLayout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
+
+.appMain {
+    margin-left: 240px;     
+    flex: 1;
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+html {
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
 .appShell {
     background-color: #0b0e13;
     min-height: 100vh;
@@ -12,6 +37,7 @@
     gap: 20px;
     padding: 20px 0;
 }
+
 .signalDivider {
     display: flex;
     align-items: center;
@@ -36,12 +62,13 @@
     letter-spacing: 2px;
     white-space: nowrap;
 }
-html {
-    overflow-y: scroll;
-    scrollbar-width: none;        
-    -ms-overflow-style: none;     
-}
 
-html::-webkit-scrollbar {
-    display: none;                
+@media (max-width: 700px) {
+    .appMain {
+        margin-left: 0;
+    }
+
+    .appShell {
+        padding: 60px 0 20px 0;   
+    }
 }

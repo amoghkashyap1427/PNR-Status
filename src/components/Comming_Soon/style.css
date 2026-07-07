@@ -1,0 +1,69 @@
+.comingSoonPage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 24px;
+}
+
+.comingSoonCard {
+    background: #12161d;
+    border: 1px solid #232834;
+    border-radius: 14px;
+    padding: 60px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+}
+
+.comingSoonIcon {
+    font-size: 40px;
+    color: #22d3ee;
+    opacity: 0.6;
+    margin-bottom: 8px;
+}
+
+.comingSoonTitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.comingSoonSub {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3d4f5e;
+    margin: 0;
+}
+
+.comingSoonBar {
+    width: 100%;
+    height: 2px;
+    background: #1e2530;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.comingSoonFill {
+    height: 100%;
+    width: 40%;
+    background: #22d3ee;
+    border-radius: 999px;
+    animation: scanning 2s ease-in-out infinite alternate;
+}
+
+@keyframes scanning {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(300%); }
+}

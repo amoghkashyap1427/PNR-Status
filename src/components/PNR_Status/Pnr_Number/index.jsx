@@ -47,7 +47,7 @@ const PnrNumber = ({ setPnrData }) => {
     <>
       <div className="pnrNumberPage">
         <div className="pnrNumberCenter">
-          <h1>Train Inquiry</h1>
+          <h1>PNR STATUS</h1>
           <div className="pnrContainer">
             <p className="pnrHeading">
               <i
