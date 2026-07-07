@@ -12,8 +12,8 @@ A futuristic, responsive PNR Status Checker built with **React + Vite**, styled 
 
 ## 📸 Preview
 
-| Desktop | Mobile |
-|---|---|
+| Desktop                                                | Mobile                                                    |
+| ------------------------------------------------------ | --------------------------------------------------------- |
 | Full two-column layout with train card + status column | Stacked single-column layout with responsive font scaling |
 
 ---
@@ -89,12 +89,14 @@ In React, data can only flow **parent → child**, never **sibling → sibling**
 `PnrDetails` and the "Signal Acquired" divider only render **after** a successful API call:
 
 ```jsx
-{pnrData && (
-  <>
-    <div className="signalDivider">...</div>
-    <PnrDetails data={pnrData} />
-  </>
-)}
+{
+  pnrData && (
+    <>
+      <div className="signalDivider">...</div>
+      <PnrDetails data={pnrData} />
+    </>
+  );
+}
 ```
 
 ---
@@ -132,11 +134,11 @@ On mobile (`< 700px`) this collapses to:
 
 ### Font Hierarchy
 
-| Font | Used For |
-|---|---|
-| **Orbitron** | Train name, station codes, CNF status, coach/seat numbers |
+| Font             | Used For                                                              |
+| ---------------- | --------------------------------------------------------------------- |
+| **Orbitron**     | Train name, station codes, CNF status, coach/seat numbers             |
 | **Chakra Petch** | Labels (COACH, SEAT/BERTH, CURRENT STATUS), chart bar text, date pill |
-| **Rajdhani** | Scan button |
+| **Rajdhani**     | Scan button                                                           |
 
 ### CSS Class Isolation
 
@@ -155,11 +157,13 @@ This prevents class name collisions that would otherwise cause both components t
 **Provider:** [RapidAPI — IRCTC Indian Railway PNR Status](https://rapidapi.com/indianrailways/api/irctc-indian-railway-pnr-status)
 
 **Endpoint:**
+
 ```
 GET https://irctc-indian-railway-pnr-status.p.rapidapi.com/getPNRStatus/{pnrNumber}
 ```
 
 **Response Shape:**
+
 ```json
 {
   "success": true,
@@ -266,27 +270,27 @@ Every `git push` after this triggers an automatic redeploy.
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| React 18 | UI framework |
-| Vite | Build tool + dev server |
-| Plain CSS | Styling (no Tailwind/Bootstrap) |
-| CSS Grid + Flexbox | Layout system |
-| Google Fonts | Orbitron, Chakra Petch, Rajdhani |
-| FontAwesome | Icons (train, calendar, clipboard, etc.) |
-| RapidAPI | IRCTC PNR Status API |
-| Vercel | Hosting + CI/CD |
-| Git + GitHub | Version control |
+| Technology         | Purpose                                  |
+| ------------------ | ---------------------------------------- |
+| React 18           | UI framework                             |
+| Vite               | Build tool + dev server                  |
+| Plain CSS          | Styling (no Tailwind/Bootstrap)          |
+| CSS Grid + Flexbox | Layout system                            |
+| Google Fonts       | Orbitron, Chakra Petch, Rajdhani         |
+| FontAwesome        | Icons (train, calendar, clipboard, etc.) |
+| RapidAPI           | IRCTC PNR Status API                     |
+| Vercel             | Hosting + CI/CD                          |
+| Git + GitHub       | Version control                          |
 
 ---
 
 ## 📱 Responsive Breakpoints
 
-| Breakpoint | Layout |
-|---|---|
-| `> 700px` | Two-column grid — train card (2fr) + status column (1fr) |
-| `≤ 700px` | Single column — all cards stacked vertically |
-| `≤ 380px` | Extra font-size reduction for very narrow phones |
+| Breakpoint | Layout                                                   |
+| ---------- | -------------------------------------------------------- |
+| `> 700px`  | Two-column grid — train card (2fr) + status column (1fr) |
+| `≤ 700px`  | Single column — all cards stacked vertically             |
+| `≤ 380px`  | Extra font-size reduction for very narrow phones         |
 
 ---
 
@@ -309,4 +313,5 @@ MIT — free to use, modify, and distribute.
 ## 👤 Author
 
 **Amogh Kashyap**
+
 - GitHub: [@amoghkashyap1427](https://github.com/amoghkashyap1427)
