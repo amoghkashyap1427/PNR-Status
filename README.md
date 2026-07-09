@@ -6,7 +6,7 @@ A futuristic, responsive PNR Status Checker built with **React + Vite**, styled 
 
 ## 🔗 Live Demo
 
-[pnr-status.vercel.app](https://pnr-status-17.vercel.app)
+[pnr-status-17.vercel.app](https://pnr-status-17.vercel.app)
 
 ---
 
