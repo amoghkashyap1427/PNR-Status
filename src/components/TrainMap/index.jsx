@@ -283,8 +283,9 @@ const TrainMap = () => {
                 >
                     {/* Dark Theme TileLayer */}
                     <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; OpenStreetMap contributors'
+                        url={`https://api.maptiler.com/maps/darkmatter/256/{z}/{x}/{y}.png?key=${import.meta.env.VITE_MAPTILER_KEY}`}
+                        tileSize={256}
+                        attribution='&copy; <a href="https://www.maptiler.com/copyright/" target="_blank">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>'
                     />
 
                     {bounds.length > 0 && <FitBounds bounds={bounds} />}
