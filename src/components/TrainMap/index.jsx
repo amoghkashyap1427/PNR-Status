@@ -38,15 +38,15 @@ const FitBounds = ({ bounds }) => {
 
 const TrainMap = () => {
     const { tdContextState, setTdContextState } = useContext(SearchContext);
-    
+
     const [query, setQuery] = useState(tdContextState.trainNo || "");
     const [liveData, setLiveData] = useState(tdContextState.liveData || null);
-    
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [filteredTrains, setFilteredTrains] = useState([]);
     const [showTrainList, setShowTrainList] = useState(false);
-    
+
     // New states for track geometry
     const [trackGeometry, setTrackGeometry] = useState(null);
     const [isFetchingRoute, setIsFetchingRoute] = useState(false);
@@ -55,7 +55,7 @@ const TrainMap = () => {
         if (tdContextState.trainNo && !liveData) {
             fetchTrainDetails(tdContextState.trainNo);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Effect to fetch track geometry when a train is loaded
@@ -174,33 +174,33 @@ const TrainMap = () => {
 
         // Check if current location has coordinates
         if (liveData.currentLocation) {
-             const cCode = liveData.currentLocation.stationCode;
-             
-             // First check if current location is source or destination
-             if (sourceStop && cCode === sourceStop.code) {
-                 currentLoc = { ...sourceStop, stationName: sourceStop.name };
-             } else if (destStop && cCode === destStop.code) {
-                 currentLoc = { ...destStop, stationName: destStop.name };
-             }
-             
-             // If we found current location coordinates
-             if (currentLoc && currentLoc.lat && currentLoc.lng) {
-                 bounds.push([currentLoc.lat, currentLoc.lng]);
-             } else if (liveData.currentLocation.lat && liveData.currentLocation.lng) {
-                 currentLoc = {
-                     stationName: liveData.currentLocation.stationName || cCode,
-                     lat: parseFloat(liveData.currentLocation.lat),
-                     lng: parseFloat(liveData.currentLocation.lng)
-                 };
-                 if (sourceStop && destStop && sourceStop.lat && destStop.lat) {
-                     mapStops = [
-                         [sourceStop.lat, sourceStop.lng],
-                         [currentLoc.lat, currentLoc.lng],
-                         [destStop.lat, destStop.lng]
-                     ];
-                 }
-                 bounds.push([currentLoc.lat, currentLoc.lng]);
-             }
+            const cCode = liveData.currentLocation.stationCode;
+
+            // First check if current location is source or destination
+            if (sourceStop && cCode === sourceStop.code) {
+                currentLoc = { ...sourceStop, stationName: sourceStop.name };
+            } else if (destStop && cCode === destStop.code) {
+                currentLoc = { ...destStop, stationName: destStop.name };
+            }
+
+            // If we found current location coordinates
+            if (currentLoc && currentLoc.lat && currentLoc.lng) {
+                bounds.push([currentLoc.lat, currentLoc.lng]);
+            } else if (liveData.currentLocation.lat && liveData.currentLocation.lng) {
+                currentLoc = {
+                    stationName: liveData.currentLocation.stationName || cCode,
+                    lat: parseFloat(liveData.currentLocation.lat),
+                    lng: parseFloat(liveData.currentLocation.lng)
+                };
+                if (sourceStop && destStop && sourceStop.lat && destStop.lat) {
+                    mapStops = [
+                        [sourceStop.lat, sourceStop.lng],
+                        [currentLoc.lat, currentLoc.lng],
+                        [destStop.lat, destStop.lng]
+                    ];
+                }
+                bounds.push([currentLoc.lat, currentLoc.lng]);
+            }
         }
     }
 
@@ -226,8 +226,8 @@ const TrainMap = () => {
     }
 
     // Determine Polyline Positions
-    const polylinePositions = (trackGeometry && trackGeometry.points && trackGeometry.points.length > 1) 
-        ? trackGeometry.points 
+    const polylinePositions = (trackGeometry && trackGeometry.points && trackGeometry.points.length > 1)
+        ? trackGeometry.points
         : (mapStops.length > 1 ? mapStops : null);
 
     return (
@@ -268,25 +268,25 @@ const TrainMap = () => {
                     )}
                 </div>
                 {error && <div className="tmError">{error}</div>}
-                
+
 
             </div>
 
             {/* Full Screen Map */}
             <div className="tmMapContainer">
-                <MapContainer 
+                <MapContainer
                     center={[22.5937, 78.9629]} // Center of India
-                    zoom={5} 
+                    zoom={5}
                     zoomControl={false}
-                    scrollWheelZoom={true} 
+                    scrollWheelZoom={true}
                     style={{ height: "100%", width: "100%", backgroundColor: '#0a192f' }}
                 >
                     {/* Dark Theme TileLayer */}
                     <TileLayer
-                        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                        attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; OpenStreetMap contributors'
                     />
-                    
+
                     {bounds.length > 0 && <FitBounds bounds={bounds} />}
 
                     {/* Polyline connecting points */}
@@ -301,11 +301,11 @@ const TrainMap = () => {
                     {majorHalts.map(halt => (
                         <Marker key={halt.stationCode} position={[halt.lat, halt.lng]} icon={majorHaltIcon}>
                             <Popup className="tmPopup">
-                                <strong>HALT</strong><br/>
-                                {halt.stationName} ({halt.stationCode})<br/>
+                                <strong>HALT</strong><br />
+                                {halt.stationName} ({halt.stationCode})<br />
                                 <span style={{ fontSize: '0.8rem', color: '#ccc' }}>
-                                    Arr: {halt.scheduledArrival ? new Date(halt.scheduledArrival).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : '--'}<br/>
-                                    Dep: {halt.scheduledDeparture ? new Date(halt.scheduledDeparture).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : '--'}
+                                    Arr: {halt.scheduledArrival ? new Date(halt.scheduledArrival).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--'}<br />
+                                    Dep: {halt.scheduledDeparture ? new Date(halt.scheduledDeparture).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--'}
                                 </span>
                             </Popup>
                         </Marker>
@@ -315,7 +315,7 @@ const TrainMap = () => {
                     {sourceStop && sourceStop.lat && sourceStop.lng && (
                         <Marker position={[sourceStop.lat, sourceStop.lng]} icon={sourceIcon}>
                             <Popup className="tmPopup">
-                                <strong>SOURCE</strong><br/>
+                                <strong>SOURCE</strong><br />
                                 {sourceStop.stationName} ({sourceStop.stationCode})
                             </Popup>
                         </Marker>
@@ -325,17 +325,17 @@ const TrainMap = () => {
                     {destStop && destStop.lat && destStop.lng && (
                         <Marker position={[destStop.lat, destStop.lng]} icon={destIcon}>
                             <Popup className="tmPopup">
-                                <strong>DESTINATION</strong><br/>
+                                <strong>DESTINATION</strong><br />
                                 {destStop.stationName} ({destStop.stationCode})
                             </Popup>
                         </Marker>
                     )}
-                    
+
                     {/* Current Location Marker */}
                     {currentLoc && currentLoc.lat && currentLoc.lng && (
                         <Marker position={[currentLoc.lat, currentLoc.lng]} icon={currentIcon}>
                             <Popup className="tmPopup">
-                                <strong>CURRENT LOCATION</strong><br/>
+                                <strong>CURRENT LOCATION</strong><br />
                                 {currentLoc.stationName}
                             </Popup>
                         </Marker>
