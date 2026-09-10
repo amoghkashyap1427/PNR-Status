@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@600;700&display=swap');
-
 * {
     box-sizing: border-box;
 }
@@ -16,25 +14,27 @@
 }
 
 .tibPage h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    margin: 0 0 4px 0;
+    margin: 0 0 8px 0;
+    color: var(--rr-text);
 }
 
 .tibCard {
     width: 100%;
     max-width: 860px;
-    background: transparent;
-    border: 1px solid #ffffff;
-    border-radius: 14px;
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg);
     padding: 36px 40px;
     display: flex;
     flex-direction: column;
     gap: 32px;
     margin-top: 15px;
     margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* ---------- Input Row ---------- */
@@ -50,15 +50,15 @@
     bottom: 10px;
     background: transparent;
     border: none;
-    color: #3a4250;
-    font-size: 13px;
+    color: var(--rr-text-mute);
+    font-size: 14px;
     cursor: pointer;
     padding: 0 4px;
     transition: color 0.2s ease;
 }
 
 .tibClearBtn:hover {
-    color: #22d3ee;
+    color: var(--rr-text);
 }
 
 .tibInputBlock {
@@ -70,42 +70,40 @@
 }
 
 .tibLabel {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #ffffff;
+    color: var(--rr-text-mute);
     margin: 0;
+    text-align: left;
 }
 
 .tibInput {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #22d3ee;
-    color: aqua;
-    font-family: 'Orbitron', sans-serif;
+    border-bottom: 2px solid var(--rr-border);
+    color: var(--rr-text);
     font-size: 16px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     padding: 8px 0;
     width: 100%;
     text-transform: uppercase;
     outline: none;
+    transition: border-color 0.2s ease;
 }
 
 .tibInput::placeholder {
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    letter-spacing: 0.5px;
-    color: #3a4250;
+    letter-spacing: normal;
+    color: var(--rr-text-mute);
     text-transform: none;
 }
 
 .tibInput:focus {
-    border-bottom-color: #22d3ee;
-    box-shadow: 0 2px 0 rgba(34, 211, 238, 0.2);
+    border-bottom-color: var(--rr-blue);
 }
 
 /* ---------- Swap Button ---------- */
@@ -114,46 +112,49 @@
     height: 42px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #0e2530;
-    border: 1px solid #22d3ee;
-    box-shadow: 0 0 14px rgba(34, 211, 238, 0.3);
-    color: #22d3ee;
-    font-size: 14px;
+    background: var(--rr-card-bg-soft);
+    border: 1px solid var(--rr-border);
+    color: var(--rr-text-dim);
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, border-color 0.2s ease, color 0.2s ease;
     margin-top: 18px;
 }
 
 .tibSwapBtn:hover {
     transform: rotate(180deg);
+    border-color: var(--rr-blue);
+    color: var(--rr-blue);
 }
 
 .tibSearchBtn {
     width: 100%;
     height: 52px;
-    background: transparent;
-    border: 2px solid #22d3ee;
-    color: #22d3ee;
-    font-family: 'Rajdhani', sans-serif;
+    background: var(--rr-blue);
+    border: none;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    border-radius: 4px;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
+    border-radius: var(--rr-radius-md);
+    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .tibSearchBtn:hover {
-    background: rgba(34, 211, 238, 0.06);
-    box-shadow: 0 0 20px rgba(9, 49, 55, 0.2);
+    background: var(--rr-blue-deep);
+}
+
+.tibSearchBtn:active {
+    transform: translateY(1px);
 }
 
 /* ---------- Dropdown ---------- */
@@ -162,14 +163,15 @@
     top: calc(100% + 8px);
     left: 0;
     right: 0;
-    background: #12161d;
-    border: 1px solid #232834;
-    border-radius: 10px;
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-sm);
     overflow: hidden;
     z-index: 50;
     max-height: 280px;
     overflow-y: auto;
     scrollbar-width: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
 .tibDropdown::-webkit-scrollbar {
@@ -182,8 +184,9 @@
     gap: 14px;
     padding: 12px 16px;
     cursor: pointer;
-    border-bottom: 1px solid #1a2030;
+    border-bottom: 1px solid var(--rr-border-soft);
     transition: background 0.15s ease;
+    text-align: left;
 }
 
 .tibDropdownItem:last-child {
@@ -191,25 +194,22 @@
 }
 
 .tibDropdownItem:hover {
-    background: rgba(34, 211, 238, 0.06);
-    border-left: 2px solid #22d3ee;
+    background: var(--rr-card-bg-soft);
 }
 
 .tibStationCode {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #22d3ee;
-    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--rr-text);
+    letter-spacing: 0.5px;
     min-width: 50px;
 }
 
 .tibStationName {
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 13px;
-    font-weight: 600;
-    color: #94a3b8;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    color: var(--rr-text-dim);
+    letter-spacing: 0px;
 }
 
 /* ---------- Status (loading / error) ---------- */
@@ -219,11 +219,10 @@
     align-items: center;
     gap: 12px;
     padding: 40px;
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 2px;
-    color: #3d4f5e;
+    letter-spacing: 1.5px;
+    color: var(--rr-text-mute);
     text-transform: uppercase;
 }
 
@@ -232,12 +231,12 @@
 }
 
 .tibSpinIcon {
-    color: #22d3ee;
+    color: var(--rr-blue);
     animation: spin 1.5s linear infinite;
 }
 
 .tibErrorIcon {
-    color: #f87171;
+    color: var(--rr-red);
 }
 
 @keyframes spin {
@@ -256,7 +255,7 @@
 
 .tibResultsHeader {
     display: flex;
-    flex-direction: column;       /* stack vertically instead of side by side */
+    flex-direction: column;
     gap: 16px;
     padding: 0 4px;
     text-align: left;
@@ -272,25 +271,23 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
     letter-spacing: 0.5px;
-    color: #f8fafc;
+    color: var(--rr-text);
     text-transform: uppercase;
 }
 
 .tibRouteSwapIcon {
-    font-size: 13px;
-    color: #22d3ee;
+    font-size: 14px;
+    color: var(--rr-text-mute);
 }
 
 .tibResultsMeta {
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 13px;
     font-weight: 600;
-    letter-spacing: 1px;
-    color: #64748b;
+    letter-spacing: 0.5px;
+    color: var(--rr-text-dim);
     text-transform: uppercase;
     margin: 0;
 }
@@ -308,38 +305,35 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #12161d;
-    border: 1px solid #232834;
-    color: #64748b;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    background: var(--rr-card-bg-soft);
+    border: 1px solid var(--rr-border);
+    color: var(--rr-text-dim);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    padding: 9px 16px;
+    padding: 8px 16px;
     border-radius: 999px;
     cursor: pointer;
-    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .tibFilterPill:hover {
-    border-color: #3d4f5e;
-    color: #94a3b8;
+    border-color: var(--rr-border-soft);
+    color: var(--rr-text);
 }
 
 .tibFilterPill .tibFilterCount {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     color: inherit;
     opacity: 0.8;
 }
 
 .tibFilterPillActive,
 .tibFilterPillActive:hover {
-    background: rgba(34, 211, 238, 0.12);
-    border-color: #22d3ee;
-    color: #22d3ee;
-    box-shadow: 0 0 14px rgba(34, 211, 238, 0.2);
+    background: var(--rr-blue);
+    border-color: var(--rr-blue-deep);
+    color: #fff;
 }
 
 /* ---------- Result Grid ---------- */
@@ -351,21 +345,22 @@
 
 /* ---------- Train Card ---------- */
 .tibTrainCard {
-    background: #12161d;
-    border: 1px solid #232834;
-    border-radius: 14px;
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg);
     padding: 24px 28px;
     display: flex;
     flex-direction: column;
     gap: 0;
     text-align: left;
+    min-width: 0;
     transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .tibTrainCard:hover {
-    border-color: rgba(34, 211, 238, 0.35);
-    background: rgba(34, 211, 238, 0.02);
+    border-color: var(--rr-blue);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 /* ── Header: number left, type right ── */
@@ -377,30 +372,27 @@
 }
 
 .tibTrainNumber {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #22d3ee;
+    letter-spacing: 1px;
+    color: var(--rr-blue);
     text-transform: uppercase;
     margin: 0;
 }
 
 .tibTrainType {
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #94a3b8;
+    color: var(--rr-text-dim);
     text-transform: uppercase;
     margin: 0;
 }
 
 .tibTrainName {
-    font-family: 'Orbitron', sans-serif;
     font-size: 18px;
-    font-weight: 700;
-    color: #f1f5f9;
+    font-weight: 800;
+    color: var(--rr-text);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     margin: 0 0 20px 0;
@@ -409,7 +401,7 @@
 /* ── Divider ── */
 .tibDivider {
     height: 1px;
-    background: #232834;
+    background: var(--rr-border-soft);
     margin-bottom: 20px;
 }
 
@@ -433,27 +425,24 @@
 }
 
 .tibStationCodeLg {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #f8fafc;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--rr-text);
     letter-spacing: 1px;
     margin: 0;
 }
 
 .tibStationNameSm {
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 13px;
     font-weight: 500;
-    color: #94a3b8;
+    color: var(--rr-text-dim);
     margin: 0;
 }
 
 .tibTime {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
-    color: #22d3ee;
+    color: var(--rr-blue);
     letter-spacing: 0.5px;
     margin: 0;
 }
@@ -472,30 +461,28 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: #0e2530;
-    border: 1px solid #22d3ee;
-    box-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+    background: var(--rr-card-bg-soft);
+    border: 1px solid var(--rr-border);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .tibTrainIconWrap i {
-    color: #22d3ee;
-    font-size: 12px;
+    color: var(--rr-text-mute);
+    font-size: 14px;
 }
 
 .tibDashedLine {
     width: 100%;
-    border-top: 1px dashed #3a4250;
+    border-top: 2px dashed var(--rr-border-soft);
 }
 
 .tibDuration {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    color: #94a3b8;
-    letter-spacing: 1px;
+    color: var(--rr-text-mute);
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     margin: 0;
 }
@@ -506,12 +493,11 @@
     align-items: center;
     gap: 10px;
     padding-top: 16px;
-    border-top: 1px solid #1a2030;
-    font-family: 'Chakra Petch', sans-serif;
+    border-top: 1px solid var(--rr-border-soft);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #3d4f5e;
+    color: var(--rr-text-dim);
     text-transform: uppercase;
     white-space: nowrap;
     overflow-x: auto;
@@ -530,12 +516,12 @@
 }
 
 .tibMetaItem i {
-    color: #2a3a48;
-    font-size: 11px;
+    color: var(--rr-text-mute);
+    font-size: 12px;
 }
 
 .tibMetaDot {
-    color: #2a3a48;
+    color: var(--rr-border);
     flex-shrink: 0;
 }
 
@@ -548,19 +534,17 @@
 
 .tibDay {
     padding: 4px 8px;
-    border-radius: 4px;
-    background: #1a2030;
-    font-size: 10px;
+    border-radius: var(--rr-radius-sm);
+    background: var(--rr-card-bg-soft);
+    font-size: 11px;
     font-weight: 700;
-    color: #2a3a48;
-    font-family: 'Chakra Petch', sans-serif;
+    color: var(--rr-text-dim);
     letter-spacing: 0.5px;
 }
 
 .tibDayActive {
-    background: rgba(34, 211, 238, 0.12);
-    color: #22d3ee;
-    box-shadow: 0 0 6px rgba(34, 211, 238, 0.2);
+    background: var(--rr-accent-soft);
+    color: var(--rr-accent);
 }
 
 /* ---------- Footer Note ---------- */
@@ -569,17 +553,16 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-family: 'Chakra Petch', sans-serif;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.5px;
-    color: #3d4f5e;
+    color: var(--rr-text-mute);
     text-transform: uppercase;
     margin: 8px 0 0 0;
 }
 
 .tibFooterNote i {
-    color: #22d3ee;
+    color: var(--rr-blue);
 }
 
 /* ---------- Responsive ---------- */
@@ -591,10 +574,10 @@
 
 @media (max-width: 700px) {
     .tibTrainName {
-        font-size: 14px;
+        font-size: 15px;
     }
     .tibStationCodeLg {
-        font-size: 22px;
+        font-size: 20px;
     }
     .tibCardHeader {
         flex-wrap: wrap;
@@ -603,5 +586,6 @@
     .tibRunDays {
         margin-left: 0;
         flex-wrap: wrap;
+        margin-top: 8px;
     }
 }

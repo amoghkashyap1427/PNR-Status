@@ -4,8 +4,8 @@
     left: 0;
     height: 100vh;
     width: 240px;
-    background: #0d1117;
-    border-right: 1px solid #1e2530;
+    background: var(--rr-nav-bg);
+    border-right: 1px solid var(--rr-border);
     display: flex;
     flex-direction: column;
     padding: 24px 0;
@@ -18,21 +18,20 @@
     align-items: center;
     gap: 10px;
     padding: 0 20px 24px 20px;
-    border-bottom: 1px solid #1e2530;
-    font-family: 'Orbitron', sans-serif;
+    border-bottom: 1px solid var(--rr-border-soft);
     font-size: 18px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    color: #f1f5f9;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--rr-text);
 }
 
 .sidebarLogo i {
-    color: #22d3ee;
+    color: var(--rr-accent);
     font-size: 20px;
 }
 
 .logoAccent {
-    color: #22d3ee;
+    color: var(--rr-accent);
 }
 
 .sidebarNav {
@@ -51,11 +50,10 @@
 }
 
 .navGroupLabel {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 2px;
-    color: #3d4f5e;
+    letter-spacing: 1px;
+    color: var(--rr-text-mute);
     text-transform: uppercase;
     padding: 0 20px;
     margin: 0 0 8px 0;
@@ -69,10 +67,9 @@
     padding: 10px 20px;
     background: transparent;
     border: none;
-    color: #64748b;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
+    color: var(--rr-text-dim);
+    font-size: 14px;
+    font-weight: 500;
     letter-spacing: 0.5px;
     cursor: pointer;
     text-align: left;
@@ -81,24 +78,24 @@
 }
 
 .navItem i {
-    font-size: 13px;
+    font-size: 14px;
     width: 16px;
     text-align: center;
 }
 
 .navItem:hover {
-    color: #94a3b8;
-    background: rgba(34, 211, 238, 0.04);
+    color: var(--rr-text);
+    background: var(--rr-card-bg-soft);
 }
 
 .navItemActive {
-    color: #22d3ee !important;
-    background: rgba(34, 211, 238, 0.08) !important;
-    border-left: 2px solid #22d3ee !important;
+    color: var(--rr-accent) !important;
+    background: var(--rr-accent-soft) !important;
+    border-left: 2px solid var(--rr-accent) !important;
 }
 
 .navItemActive i {
-    color: #22d3ee;
+    color: var(--rr-accent);
 }
 
 .sidebarFooter {
@@ -106,17 +103,16 @@
     align-items: center;
     gap: 8px;
     padding: 16px 20px 0 20px;
-    border-top: 1px solid #1e2530;
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 11px;
+    border-top: 1px solid var(--rr-border-soft);
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #3d4f5e;
+    color: var(--rr-text-mute);
     text-transform: uppercase;
 }
 
 .statusDot {
-    color: #22d3ee;
+    color: var(--rr-green); /* using green for active status looks better */
     font-size: 7px;
     animation: pulse 2s infinite;
 }
@@ -134,10 +130,10 @@
     z-index: 200;
     width: 38px;
     height: 38px;
-    background: #12161d;
-    border: 1px solid #232834;
-    border-radius: 8px;
-    color: #22d3ee;
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-sm);
+    color: var(--rr-text);
     font-size: 16px;
     cursor: pointer;
     align-items: center;

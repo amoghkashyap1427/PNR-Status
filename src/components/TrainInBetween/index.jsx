@@ -1,6 +1,8 @@
 import "./style.css";
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import stationsJson from "../../data/stations.json";
+import { SearchContext } from "../../context/SearchContext";
 
 const stations = stationsJson.data;
 
@@ -91,7 +93,7 @@ const StationInput = ({ label, value, onChange }) => {
 };
 
 // ── TrainCard ─────────────────────────────────────────────────
-const TrainCard = ({ item }) => {
+const TrainCard = ({ item, onClick }) => {
   const { train, from, to, duration, distance, totalHaltsBetween } = item;
 
   const journeyDate = new Date()
@@ -103,7 +105,7 @@ const TrainCard = ({ item }) => {
     .toUpperCase();
 
   return (
-    <div className="tibTrainCard">
+    <div className="tibTrainCard" onClick={() => onClick(train.number)} style={{ cursor: "pointer" }}>
       <div className="tibCardHeader">
         <p className="tibTrainNumber">{train.number}</p>
         <p className="tibTrainType">{train.type}</p>
@@ -162,12 +164,24 @@ const TrainCard = ({ item }) => {
 
 // ── Main Component ────────────────────────────────────────────
 const TrainInBetween = () => {
-  const [source, setSource] = useState("");
-  const [destination, setDestination] = useState("");
-  const [results, setResults] = useState(null);
+  const { tibContextState, setTibContextState } = useContext(SearchContext);
+  
+  const source = tibContextState.from;
+  const setSource = (val) => setTibContextState(prev => ({ ...prev, from: val }));
+
+  const destination = tibContextState.to;
+  const setDestination = (val) => setTibContextState(prev => ({ ...prev, to: val }));
+
+  const results = tibContextState.trains;
+  const setResults = (val) => setTibContextState(prev => ({ ...prev, trains: val }));
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
+  const navigate = useNavigate();
+
+  const handleCardClick = (trainNumber) => {
+    navigate('/live-train-status', { state: { trainNumber } });
+  };
 
   const handleSwap = () => {
     setSource(destination);
@@ -311,7 +325,7 @@ const TrainInBetween = () => {
 
           <div className="tibResultsList">
             {visibleTrains.map((item) => (
-              <TrainCard key={item.train.number} item={item} />
+              <TrainCard key={item.train.number} item={item} onClick={handleCardClick} />
             ))}
           </div>
 

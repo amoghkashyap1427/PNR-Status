@@ -1,19 +1,12 @@
-import { useState } from "react";
-import "./App.css";
-import PnrStatus from "./components/PNR_Status/PnrStatus";
-import Sidebar from "./components/Sidebar";
-import ComingSoon from "./components/Comming_Soon";
-import TrainInBetween from "./components/Train_Between_Station";
-const PAGES = {
-  "Introduction":            <ComingSoon feature="Introduction"            />,
-  "PNR Status":              <PnrStatus />,
-  "Get Train Details":       <ComingSoon feature="Get Train Details"       />,
-  "Live Train Status":       <ComingSoon feature="Live Train Status"       />,
-  "Train Route":             <ComingSoon feature="Train Route"             />,
-  "Trains Between Stations":  <TrainInBetween/>,
-  "Station Board":           <ComingSoon feature="Station Board"           />,
-  "Station Live Board":      <ComingSoon feature="Station Live Board"      />,
-};
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { useState } from 'react'
+import './App.css'
+import Sidebar from './components/Sidebar'
+import PnrStatus from './components/PNR_Status/PnrStatus'
+import TrainInBetween from './components/TrainInBetween'
+import TrainDetails from './components/TrainDetails'
+import TrainMap from './components/TrainMap'
+import ComingSoon from './components/Coming_Soon'
 
 function App() {
   const [activeItem, setActiveItem] = useState("PNR Status");
@@ -23,11 +16,21 @@ function App() {
       <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} />
       <main className="appMain">
         <div className="appShell">
-          {PAGES[activeItem] ?? <ComingSoon feature={activeItem} />}
+          <Routes>
+            <Route path="/"                       element={<Navigate to="/pnr-status" replace />} />
+            <Route path="/pnr-status"             element={<PnrStatus />} />
+            <Route path="/trains-between"         element={<TrainInBetween />} />
+            <Route path="/live-train-status"      element={<TrainDetails/>} />
+            <Route path="/train-route"            element={<ComingSoon feature="Train Route" />} />
+            <Route path="/station-board"          element={<ComingSoon feature="Station Board" />} />
+            <Route path="/station-live-board"     element={<ComingSoon feature="Station Live Board" />} />
+            <Route path="/introduction"           element={<ComingSoon feature="Introduction" />} />
+            <Route path="/live-train-map"         element={<TrainMap/>} />
+          </Routes>
         </div>
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

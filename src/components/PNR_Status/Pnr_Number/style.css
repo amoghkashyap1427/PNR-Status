@@ -1,9 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Chakra+Petch:wght@600;700&family=Rajdhani:wght@600;700&display=swap');
-
-* {
-    box-sizing: border-box;
-}
-
 .pnrNumberPage {
     width: 100%;
     display: flex;
@@ -19,96 +13,109 @@
 }
 
 .pnrNumberCenter h1 {
-    font-family: 'Orbitron', sans-serif;
     font-size: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
     margin: 0 0 4px 0;
+    color: var(--rr-text);
 }
 
 .pnrContainer {
     margin: 20px auto 0 auto;
-    border-style: solid;
-    border-radius: 10px;
-    border-color: gray;
-    border-width: 1px;
-    height: auto;
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-md);
     width: 100%;
     max-width: 360px;
-    padding: 14px 18px;
+    padding: 24px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .pnrHeading {
-    font-size: 11px;
+    font-size: 13px;
     align-self: start;
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 1.5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--rr-text-mute);
     text-transform: uppercase;
-    margin: 0 0 4px 0;
+    margin: 0 0 8px 0;
 }
 
 .pnrHeading i {
     margin-right: 8px;
 }
 
-.pnrInputBox {
+.pnrCubesContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
     margin-top: 8px;
-    margin-bottom: 8px;
-    text-align: center;
-    padding: 5px;
+    margin-bottom: 16px;
     width: 100%;
-    max-width: 240px;
+}
+
+.pnrCube {
+    flex: 1;
+    min-width: 0;
+    max-width: 34px;
+    aspect-ratio: 4/5;
+    padding: 0;
+    text-align: center;
     font-size: 18px;
-    background-color: transparent;
-    border-style: none;
-    border-bottom: dashed;
-    border-width: 1px;
-    color: aqua;
-    font-family: 'Chakra Petch', sans-serif;
-    letter-spacing: 2px;
+    font-weight: 700;
+    background-color: var(--rr-card-bg-soft);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-sm);
+    color: var(--rr-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.pnrInputBox::placeholder {
-    color: gray;
-}
-
-.pnrInputBox:focus {
+.pnrCube:focus {
     outline: none;
+    border-color: var(--rr-blue);
+    box-shadow: 0 0 0 2px rgba(47, 111, 237, 0.2);
+}
+
+.pnrCube::placeholder {
+    color: var(--rr-text-mute);
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .btnContainer {
     width: 100%;
     margin-top: 6px;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
 }
 
 .pnrScanBtn {
     width: 100%;
-    height: 40px;
-    background: transparent;
-    border: 2px solid #22d3ee;
-    color: #22d3ee;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 16px;
+    height: 48px;
+    background: var(--rr-blue);
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    border-radius: 4px;
-    transition: background 0.2s ease, box-shadow 0.2s ease;
+    border-radius: var(--rr-radius-sm);
+    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .pnrScanBtn:hover {
-    background: rgba(34, 211, 238, 0.06);
-    box-shadow: 0 0 20px rgba(16, 56, 62, 0.641);
+    background: var(--rr-blue-deep);
+}
+
+.pnrScanBtn:active {
+    transform: translateY(1px);
 }
 
 @media (max-width: 700px) {
@@ -121,23 +128,21 @@
     }
 
     .pnrNumberCenter h1 {
-        font-size: 16px;
-        letter-spacing: 1.5px;
+        font-size: 18px;
     }
 
     .pnrContainer {
         max-width: 100%;
-        padding: 14px 16px;
+        padding: 20px 16px;
         margin: 16px 0 0 0;
     }
 
     .pnrHeading {
-        font-size: 10px;
+        font-size: 12px;
     }
 
-    .pnrInputBox {
+    .pnrCube {
         font-size: 16px;
-        max-width: 100%;
     }
 
     .btnContainer {
@@ -145,23 +150,21 @@
     }
 
     .pnrScanBtn {
-        font-size: 12px;
-        height: 36px;
-        width: 100%;
+        font-size: 14px;
+        height: 44px;
     }
 }
 
 @media (max-width: 380px) {
     .pnrNumberCenter h1 {
-        font-size: 14px;
+        font-size: 16px;
     }
 
-    .pnrInputBox {
+    .pnrCube {
         font-size: 14px;
-        letter-spacing: 1px;
     }
 
     .pnrScanBtn {
-        font-size: 11px;
+        font-size: 13px;
     }
 }

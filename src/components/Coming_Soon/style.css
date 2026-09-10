@@ -7,9 +7,9 @@
 }
 
 .comingSoonCard {
-    background: #12161d;
-    border: 1px solid #232834;
-    border-radius: 14px;
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg);
     padding: 60px 48px;
     display: flex;
     flex-direction: column;
@@ -18,47 +18,47 @@
     max-width: 460px;
     width: 100%;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .comingSoonIcon {
-    font-size: 40px;
-    color: #22d3ee;
-    opacity: 0.6;
+    font-size: 44px;
+    color: var(--rr-blue);
+    opacity: 0.8;
     margin-bottom: 8px;
 }
 
 .comingSoonTitle {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #f1f5f9;
-    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--rr-text);
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     margin: 0;
 }
 
 .comingSoonSub {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
-    letter-spacing: 2px;
-    color: #3d4f5e;
+    letter-spacing: 1px;
+    color: var(--rr-text-mute);
     margin: 0;
+    text-transform: uppercase;
 }
 
 .comingSoonBar {
     width: 100%;
-    height: 2px;
-    background: #1e2530;
+    height: 4px;
+    background: var(--rr-border);
     border-radius: 999px;
     overflow: hidden;
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .comingSoonFill {
     height: 100%;
     width: 40%;
-    background: #22d3ee;
+    background: var(--rr-blue);
     border-radius: 999px;
     animation: scanning 2s ease-in-out infinite alternate;
 }

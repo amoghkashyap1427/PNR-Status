@@ -1,0 +1,542 @@
+
+
+.rrApp {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--rr-bg);
+    color: var(--rr-text);
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* ── Page ── */
+.rrPage {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 28px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+}
+
+.rrPageHeading {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 4px 0;
+    color: var(--rr-text);
+    text-align: center;
+}
+
+/* ── Search Card ── */
+.rrSearchCard {
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg);
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.rrInputBlock { display: flex; flex-direction: column; gap: 10px; }
+.rrLabel {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--rr-text-mute); margin: 0;
+}
+.rrInputRow {
+    display: flex; align-items: center; gap: 12px;
+    border-bottom: 1px solid var(--rr-accent); padding-bottom: 10px;
+}
+.rrInputIcon { color: var(--rr-accent); font-size: 15px; flex-shrink: 0; }
+.rrInput {
+    flex: 1; background: transparent; border: none; outline: none;
+    color: var(--rr-text); font-size: 16px; font-weight: 600;
+}
+.rrInput::placeholder { color: var(--rr-text-mute); font-weight: 400; }
+
+/* ---------- Dropdown ---------- */
+.rrDropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-sm);
+    overflow: hidden;
+    z-index: 50;
+    max-height: 280px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.rrDropdown::-webkit-scrollbar { display: none; }
+.rrDropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--rr-border-soft);
+    transition: background 0.15s ease;
+    text-align: left;
+}
+.rrDropdownItem:last-child { border-bottom: none; }
+.rrDropdownItem:hover { background: var(--rr-card-bg-soft); }
+.rrDropdownCode {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--rr-text);
+    letter-spacing: 0.5px;
+    min-width: 50px;
+}
+.rrDropdownName {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--rr-text-dim);
+    letter-spacing: 0px;
+}
+
+.rrClearBtn { background: transparent; border: none; color: var(--rr-text-mute); cursor: pointer; padding: 0 4px; }
+.rrClearBtn:hover { color: var(--rr-accent); }
+.rrSearchBtn {
+    width: 100%; height: 48px; background: var(--rr-blue); border: none;
+    border-radius: var(--rr-radius-sm); color: #fff; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.5px; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; gap: 10px; transition: background 0.15s;
+}
+.rrSearchBtn:hover { background: var(--rr-blue-deep); }
+
+/* ── Status ── */
+.rrStatus {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    padding: 50px 20px; color: var(--rr-text-mute); font-size: 14px; font-weight: 500;
+}
+.rrStatusIcon { font-size: 26px; color: var(--rr-text-mute); }
+.rrSpin { color: var(--rr-accent); animation: rrSpinAnim 1.4s linear infinite; }
+.rrError { color: var(--rr-red); }
+.rrCoachEmpty { background: var(--rr-card-bg); border: 1px solid var(--rr-border); border-radius: var(--rr-radius-lg); }
+@keyframes rrSpinAnim { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ── Page Head ── */
+.rrPageHead {
+    background: linear-gradient(135deg, var(--rr-blue), var(--rr-blue-deep));
+    border-radius: var(--rr-radius-lg);
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 14px;
+}
+.rrBackBtn {
+    width: 34px; height: 34px; border-radius: 50%; border: none;
+    background: rgba(255,255,255,0.14); color: #fff; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: background 0.15s;
+}
+.rrBackBtn:hover { background: rgba(255,255,255,0.24); }
+.rrPageHeadTitle { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+.rrPageHeadNum { margin: 0; font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.75); letter-spacing: 0.5px; }
+.rrPageHeadName { margin: 0; font-size: 15px; font-weight: 700; color: #fff; }
+.rrDatePill {
+    background: rgba(255,255,255,0.12); border: none; border-radius: 999px;
+    color: #fff; padding: 8px 14px; display: flex; align-items: center; gap: 8px;
+    cursor: pointer; font-size: 12px; white-space: nowrap;
+}
+.rrDatePillLabel { display: block; font-size: 9px; font-weight: 700; letter-spacing: 1px; opacity: 0.7; }
+.rrDatePillValue { display: block; font-size: 13px; font-weight: 700; }
+.rrDatePillChevron { font-size: 9px; opacity: 0.8; }
+.rrDateInputHidden {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0; cursor: pointer;
+}
+.rrDateInputHidden::-webkit-calendar-picker-indicator {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer;
+}
+
+/* ── Tabs ── */
+.rrTabs {
+    display: flex; gap: 6px; background: var(--rr-card-bg-soft);
+    border: 1px solid var(--rr-border); border-radius: 999px; padding: 4px; width: fit-content;
+}
+.rrTab {
+    background: transparent; border: none; color: var(--rr-text-dim);
+    font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 999px;
+    cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.15s;
+}
+.rrTabActive { background: var(--rr-accent); color: #fff; }
+
+/* ── Tracker Card (banner + body + sticky bar, one seamless card) ── */
+.rrTrackerCard {
+    background: var(--rr-card-bg);
+    border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg);
+}
+.rrTrackerBanner {
+    background: linear-gradient(90deg, var(--rr-blue-deep), var(--rr-blue));
+    border-radius: calc(var(--rr-radius-lg) - 1px) calc(var(--rr-radius-lg) - 1px) 0 0;
+    padding: 10px 24px;
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,0.9);
+}
+.rrTrackerBanner span:last-child { text-align: right; }
+.rrTrackerBannerDate { text-align: center; font-weight: 700; }
+
+.rrTrackerBody { padding: 22px 24px 8px; display: flex; flex-direction: column; gap: 18px; }
+
+.rrInfoHeader { display: flex; flex-direction: column; gap: 6px; }
+.rrInfoIdBlock { display: flex; align-items: center; gap: 10px; }
+.rrTrainNumber { font-size: 13px; font-weight: 700; color: var(--rr-accent); letter-spacing: 0.5px; }
+.rrTypePill {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--rr-text-dim); border: 1px solid var(--rr-border); border-radius: 999px; padding: 3px 10px;
+}
+.rrTrainName { margin: 0; font-size: 19px; font-weight: 800; letter-spacing: -0.2px; }
+
+.rrRunDaysBlock { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.rrRunDaysLabel { margin: 0; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--rr-text-mute); }
+.rrRunDays { display: flex; gap: 5px; }
+.rrDay {
+    padding: 5px 9px; border-radius: 6px; background: var(--rr-card-bg-soft);
+    font-size: 11px; font-weight: 700; color: var(--rr-text-mute); border: 1px solid var(--rr-border-soft);
+}
+.rrDayActive { background: var(--rr-accent); color: #fff; border-color: var(--rr-accent); }
+
+.rrStatsGrid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--rr-border); border: 1px solid var(--rr-border); border-radius: var(--rr-radius-md);
+    overflow: hidden;
+}
+.rrStatCell { background: var(--rr-card-bg-soft); padding: 12px 16px; display: flex; flex-direction: column; gap: 5px; }
+.rrStatLabel {
+    margin: 0; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--rr-text-mute);
+    text-transform: uppercase; display: flex; align-items: center; gap: 6px;
+}
+.rrStatLabel i { color: var(--rr-accent); font-size: 10px; }
+.rrStatValue { margin: 0; font-size: 15px; font-weight: 700; color: var(--rr-text); }
+
+.rrDivider { height: 1px; background: var(--rr-border-soft); }
+
+.rrColHeaders {
+    display: grid; grid-template-columns: 62px 26px 1fr 62px; gap: 0 8px;
+    padding-bottom: 8px; font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
+    color: var(--rr-text-mute); text-transform: uppercase;
+}
+.rrColHeaders span:first-child { text-align: right; }
+.rrColHeaders span:nth-child(3) { text-align: center; }
+.rrColHeaders span:last-child { text-align: right; }
+
+/* ── Timeline ── */
+.rrTimeline { display: flex; flex-direction: column; }
+
+.rrStop { display: grid; grid-template-columns: 62px 26px 1fr 62px; gap: 0 8px; min-height: 58px; }
+.rrStopDeparted .rrStopLeft, .rrStopDeparted .rrStopRight,
+.rrStopDeparted .rrStopName, .rrStopDeparted .rrStopDist { opacity: 0.4; }
+
+.rrStopLeft { display: flex; flex-direction: column; align-items: flex-end; padding-top: 6px; }
+.rrStopRight { display: flex; flex-direction: column; align-items: flex-end; padding-top: 6px; }
+
+.rrTimeStack { display: flex; flex-direction: column; gap: 2px; }
+.rrTimeStack--left { align-items: flex-end; }
+.rrTimeStack--right { align-items: flex-end; }
+.rrTimeSched { font-size: 11px; font-weight: 600; color: var(--rr-text-dim); }
+.rrTimeActual { font-size: 11px; font-weight: 700; }
+.rrTimeLate { color: var(--rr-red); }
+.rrTimeOk { color: var(--rr-accent); }
+.rrTimeDash { font-size: 11px; color: var(--rr-text-mute); }
+
+.rrTrackCol { display: flex; flex-direction: column; align-items: center; position: relative; }
+.rrTrackColSm { }
+.rrTrackLine { width: 2px; flex: 1; min-height: 8px; }
+.rrTrackTop, .rrTrackBottom { min-height: 10px; }
+.rrTrackDone { background: #253044; }
+.rrTrackActive { background: var(--rr-accent); }
+.rrTrackPending { background: #161d29; }
+
+.rrDot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
+.rrDotDone { background: #253044; border: 2px solid #253044; }
+.rrDotPending { background: transparent; border: 2px solid #303c4f; }
+.rrDotActive {
+    width: 22px; height: 22px; background: var(--rr-accent);
+    border: 3px solid #0e1420; box-shadow: 0 0 0 2px var(--rr-accent);
+    margin: -5px 0;
+}
+.rrDotActiveSm { width: 16px; height: 16px; margin: 0; }
+.rrDotIcon { color: #fff; font-size: 9px; }
+.rrDotIconSm { font-size: 7px; }
+
+.rrDotSm { width: 6px; height: 6px; border-radius: 50%; background: #253044; flex-shrink: 0; }
+.rrDotSmDone { background: #253044; }
+
+.rrStopInfo { padding: 4px 0 14px 6px; }
+.rrStopNameRow { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+.rrStopName { font-size: 14px; font-weight: 700; color: var(--rr-text); }
+.rrCyan { color: var(--rr-accent) !important; }
+.rrCurrentBadge {
+    display: flex; align-items: center; gap: 5px; background: var(--rr-accent-soft);
+    border: 1px solid rgba(77,141,255,0.35); border-radius: 999px; padding: 2px 8px;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.5px; color: var(--rr-accent);
+}
+.rrLiveDot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--rr-accent);
+    animation: rrLivePulse 1.4s ease-in-out infinite; flex-shrink: 0;
+}
+@keyframes rrLivePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+.rrDayDividerGroup {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px 0;
+}
+.rrDayDividerTrackCol {
+    position: absolute;
+    left: 70px;
+    width: 26px;
+    height: 100%;
+    display: flex; flex-direction: column; align-items: center;
+}
+.rrDayDividerLine {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--rr-border-soft);
+    z-index: 0;
+}
+.rrDayDividerBadge {
+    background: var(--rr-card-bg-soft);
+    border: 1px solid var(--rr-border-soft);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--rr-text);
+    z-index: 2;
+}
+
+.rrStopMeta { display: flex; align-items: center; gap: 10px; }
+.rrStopDist { font-size: 11px; color: var(--rr-text-mute); }
+.rrStopPf {
+    font-size: 10px; font-weight: 700; color: var(--rr-text-dim);
+    background: var(--rr-card-bg-soft); border: 1px solid var(--rr-border-soft);
+    border-radius: 5px; padding: 1px 6px; display: inline-flex; align-items: center; gap: 5px;
+}
+.rrPfEdit { font-size: 8px; color: var(--rr-text-mute); }
+
+/* Intermediate group */
+.rrIntGroup { position: relative; display: grid; grid-template-columns: 62px 26px 1fr 62px; gap: 0 8px; }
+.rrIntTrackCol { grid-column: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.rrTrackFull { width: 2px; }
+.rrIntToggle {
+    grid-column: 3; display: flex; align-items: center; gap: 8px;
+    background: transparent; border: none; cursor: pointer; font-size: 11px;
+    font-weight: 600; letter-spacing: 0.5px; color: var(--rr-text-mute);
+    padding: 8px 0; text-align: left; transition: color 0.15s;
+}
+.rrIntToggle:hover { color: var(--rr-text-dim); }
+.rrIntToggle i { font-size: 9px; }
+
+.rrIntList { grid-column: 1 / -1; display: flex; flex-direction: column; }
+.rrIntStop { display: grid; grid-template-columns: 62px 26px 1fr 62px; gap: 0 8px; min-height: 38px; align-items: center; }
+.rrIntCurrent { background: var(--rr-accent-soft); border-radius: 8px; }
+.rrIntLeft, .rrIntRight { display: flex; flex-direction: column; align-items: flex-end; }
+.rrIntInfo { padding-left: 6px; display: flex; align-items: baseline; gap: 8px; }
+.rrIntName { font-size: 12px; font-weight: 600; color: var(--rr-text-dim); }
+.rrIntDist { font-size: 10px; color: var(--rr-text-mute); }
+.rrIntDeparted .rrIntName { color: var(--rr-text-mute); opacity: 0.7; }
+
+.rrInTrainRow { display: flex; justify-content: flex-end; padding: 6px 0 4px; }
+.rrInTrainBtn {
+    background: var(--rr-card-bg-soft); border: 1px solid var(--rr-border);
+    color: var(--rr-text-dim); border-radius: 999px; padding: 8px 16px;
+    font-size: 12px; font-weight: 700; cursor: pointer; display: flex;
+    align-items: center; gap: 8px; transition: all 0.15s;
+}
+.rrInTrainBtn:hover { border-color: var(--rr-accent); color: var(--rr-accent); }
+
+/* ── Sticky status bar ── */
+.rrStickyBar {
+    position: sticky; bottom: 0;
+    z-index: 10;
+    background: rgba(14, 20, 32, 0.92);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid var(--rr-border);
+    border-radius: 0 0 calc(var(--rr-radius-lg) - 1px) calc(var(--rr-radius-lg) - 1px);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.rrStickyLeft { display: flex; flex-direction: column; gap: 4px; }
+.rrStickyAt { margin: 0; font-size: 14px; font-weight: 700; color: var(--rr-text); }
+.rrStickyMeta { display: flex; align-items: center; gap: 10px; }
+.rrStickyDelay { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 5px; }
+.rrOnTime { color: var(--rr-green); background: rgba(34,197,94,0.12); }
+.rrLate { color: var(--rr-red); background: rgba(240,85,74,0.12); }
+.rrStickyUpdated { font-size: 11px; color: var(--rr-text-mute); }
+.rrRefreshBtn {
+    width: 40px; height: 40px; border-radius: 50%; border: none;
+    background: var(--rr-blue); color: #fff; font-size: 14px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: background 0.15s;
+}
+.rrRefreshBtn:hover { background: var(--rr-blue-deep); }
+
+/* ── Description ── */
+.rrDescCard {
+    background: var(--rr-card-bg); border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg); padding: 18px 22px;
+}
+.rrDescCard p { margin: 0; font-size: 13px; line-height: 1.7; color: var(--rr-text-dim); }
+
+/* ── Schedule table ── */
+.rrScheduleCard {
+    background: var(--rr-card-bg); border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg); padding: 18px 22px; overflow-x: auto;
+}
+.rrScheduleHead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.rrScheduleHead p { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--rr-text-dim); }
+.rrScheduleTz { font-size: 10px; font-weight: 700; color: var(--rr-text-mute); }
+.rrTable { display: flex; flex-direction: column; min-width: 480px; }
+.rrTableRow {
+    display: grid; grid-template-columns: 34px 1fr 64px 64px 46px 44px;
+    gap: 4px; padding: 9px 0; border-bottom: 1px solid var(--rr-border-soft);
+    font-size: 12px; color: var(--rr-text-dim); align-items: center;
+}
+.rrTableHeadRow {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--rr-text-mute);
+    text-transform: uppercase; border-bottom: 1px solid var(--rr-border);
+}
+.rrTableNum { color: var(--rr-text-mute); }
+.rrTableStation { color: var(--rr-text); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.rrTableCode {
+    font-size: 9px; font-weight: 700; color: var(--rr-accent);
+    background: var(--rr-accent-soft); border-radius: 4px; padding: 1px 5px;
+}
+.rrTableSrc { color: var(--rr-accent); font-weight: 700; }
+
+/* ── Other trains ── */
+.rrOtherCard {
+    background: var(--rr-card-bg); border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg); padding: 18px 22px; display: flex; flex-direction: column; gap: 4px;
+}
+.rrOtherHead { margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--rr-text-dim); }
+.rrOtherRow { padding: 8px 0; border-top: 1px solid var(--rr-border-soft); }
+.rrOtherRow:first-of-type { border-top: none; }
+.rrOtherRow p { margin: 0; font-size: 13px; color: var(--rr-text); }
+.rrOtherNum { color: var(--rr-accent); font-weight: 700; }
+.rrOtherRoute { margin-top: 3px !important; font-size: 12px !important; color: var(--rr-text-mute) !important; }
+
+/* ── FAQ ── */
+.rrFaqCard {
+    background: var(--rr-card-bg); border: 1px solid var(--rr-border);
+    border-radius: var(--rr-radius-lg); padding: 18px 22px; display: flex; flex-direction: column; gap: 14px;
+}
+.rrFaqHead { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--rr-text-dim); }
+.rrFaqItem { display: flex; flex-direction: column; gap: 4px; }
+.rrFaqQ { margin: 0; font-size: 13px; font-weight: 700; color: var(--rr-text); }
+.rrFaqA { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--rr-text-mute); }
+.rrFaqDisclaimer {
+    margin: 6px 0 0; padding-top: 12px; border-top: 1px solid var(--rr-border-soft);
+    font-size: 11.5px; line-height: 1.6; color: var(--rr-text-mute);
+}
+
+
+/* ── Custom Date Picker ── */
+.rrDatePickerOverlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000; padding: 20px;
+}
+.rrDatePickerModal {
+    background: #111623; border: 1px solid var(--rr-border);
+    border-radius: 12px; width: 100%; max-width: 340px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    display: flex; flex-direction: column; overflow: hidden;
+}
+.rrDatePickerHeader {
+    background: var(--rr-blue); padding: 16px 20px; color: #fff;
+}
+.rrDatePickerHeaderTop {
+    display: flex; align-items: center; justify-content: space-between;
+}
+.rrDatePickerTitle { font-size: 16px; font-weight: 600; }
+.rrDatePickerCloseBtn {
+    background: transparent; border: none; color: rgba(255,255,255,0.8);
+    font-size: 18px; cursor: pointer; padding: 0; line-height: 1;
+}
+.rrDatePickerHeaderSub {
+    font-size: 13px; margin-top: 6px; opacity: 0.9;
+}
+.rrDatePickerBody { padding: 20px 16px; background: #0f141d; }
+.rrDatePickerControls {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding: 0 12px;
+}
+.rrDatePickerNavBtn {
+    background: transparent; border: none; color: var(--rr-text);
+    font-size: 14px; cursor: pointer; padding: 4px 8px;
+}
+.rrDatePickerMonthLabel { font-size: 15px; font-weight: 600; color: var(--rr-text); }
+.rrDatePickerGrid {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px 4px;
+}
+.rrDatePickerDayHeader {
+    text-align: center; font-size: 12px; color: var(--rr-text-mute); font-weight: 500;
+    margin-bottom: 8px;
+}
+.rrDatePickerCell {
+    background: transparent; border: none; color: var(--rr-text);
+    height: 36px; display: flex; align-items: center; justify-content: center;
+    border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer;
+    transition: background 0.15s;
+}
+.rrDatePickerCell:hover:not(.empty):not(.invalid) {
+    background: var(--rr-border);
+}
+.rrDatePickerCell.invalid {
+    opacity: 0.25; cursor: not-allowed;
+}
+.rrDatePickerCell.selected {
+    background: var(--rr-accent); color: #fff; font-weight: 700;
+}
+.rrDatePickerLegend {
+    padding: 16px 20px; border-top: 1px solid var(--rr-border);
+    display: flex; align-items: center; gap: 10px; background: #131926;
+    font-size: 12px; color: var(--rr-text-dim);
+}
+.rrDatePickerLegendDot {
+    width: 12px; height: 12px; border-radius: 4px; background: var(--rr-accent); flex-shrink: 0;
+}
+.rrDatePickerFooter {
+    padding: 12px 20px 20px; background: #131926; display: flex;
+}
+.rrDatePickerFooterClose {
+    flex: 1; background: #1a2233; border: 1px solid var(--rr-border);
+    color: var(--rr-text); padding: 12px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.15s;
+}
+.rrDatePickerFooterClose:hover { background: #232d42; }
+
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+    .rrNavLinks { display: none; }
+    .rrPage { padding: 20px 14px 48px; }
+    .rrSearchCard { padding: 22px 18px; }
+    .rrTrainName { font-size: 16px; }
+    .rrStatsGrid { grid-template-columns: repeat(2, 1fr); }
+    .rrColHeaders { grid-template-columns: 50px 22px 1fr; }
+    .rrColHeaders span:last-child { display: none; }
+    .rrStop { grid-template-columns: 50px 22px 1fr; }
+    .rrStop .rrStopRight { display: none; }
+    .rrIntGroup { grid-template-columns: 50px 22px 1fr; }
+    .rrIntStop { grid-template-columns: 50px 22px 1fr; }
+    .rrIntRight { display: none; }
+    .rrStickyBar { flex-wrap: wrap; }
+    .rrFooterInner { grid-template-columns: 1fr 1fr; }
+    .rrTrackerBanner { grid-template-columns: auto; text-align: center; gap: 4px; }
+    .rrTrackerBanner span:first-child, .rrTrackerBanner span:last-child { display: none; }
+}
